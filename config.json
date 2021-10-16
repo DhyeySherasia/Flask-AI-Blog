@@ -1,0 +1,17 @@
+{
+  "params":
+  {
+    "local_server": "True",
+    "local_uri": "mysql://root:@localhost/aiblog",
+    "production_uri": "mysql://root:@localhost/aiblog",
+    "linkedin": "https://www.linkedin.com/in/dhyey-sherasia-9174061b7",
+    "github": "https://www.github.com/technotronics",
+    "gmail_username": "fortesting2301@gmail.com",
+    "gmail_password": "TechnoTronics",
+    "about_text": "My name is Dhyey. I am a crazy AI enthusiast. Created this Blogging world for Dreamers like me.",
+    "n_posts_homepage": 5,
+    "admin_username": "Dhyey",
+    "admin_pass": "Dhyey",
+    "upload_location": "D:\\Programming Projects\\Flask Tutorials - Harry\\Flask-AI-Blog\\static\\assets\\img"
+  }
+}

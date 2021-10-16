@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+{% block body %}
+
+
+<!-- Page Header-->
+<header class="masthead" style="background-image: url('{{ url_for('static', filename='assets/img/home-bg.jpg') }}')">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="site-heading">
+                    <h2>Welcome, {{username}}</h2>
+                    <span class="subheading">Manage your posts</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Main Content-->
+<div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+            <h3>Basic Actions</h3>
+            <a href="/edit/0"><button class="btn btn-primary">Add New Post</button></a>
+            <a href="/logout"><button class="btn btn-primary">Logout</button></a>
+            <hr>
+<!--            File Uploader -->
+            <h3>Upload file</h3>
+                <form action="/uploader" method="post" enctype="multipart/form-data">
+                    <input type="file" name="new_file">
+                    <button type="submit" class="btn btn-primary px-3 py-2">Upload</button>
+                </form>
+
+            <hr>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>SrNo.</th>
+                    <th>Title</th>
+                    <th>Date</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                {% for post in posts %}
+
+                    <tr>
+
+                            <td><a href="/post/{{ post.slug }}">{{post.srno}}</a></td>
+                            <td><a href="/post/{{ post.slug }}">{{post.title}}</a></td>
+                            <td><a href="/post/{{ post.slug }}">{{post.date}}</a></td>
+
+                        <td><a href="/edit/{{post.srno}}"><button class="btn btn-primary py-2 px-3">Edit</button></a></td>
+                        <td><a href="/delete/{{post.srno}}"><button class="btn btn-danger py-2 px-3">Delete</button></a></td>
+                    </tr>
+
+                {% endfor %}
+
+                </tbody>
+            </table>
+
+
+            <!-- Pager-->
+        </div>
+    </div>
+</div>
+
+{% endblock %}
